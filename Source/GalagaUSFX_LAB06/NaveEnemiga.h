@@ -22,7 +22,6 @@ protected:
 	float experiencia;
 	float tiempoDisparo;
 
-
 	float danoProducido;  // 
 	float energia; // La energia que tendran todas las naves
 	float resistencia;   // La resistencia que tendran todas las naves
@@ -59,6 +58,8 @@ public:
 
 public:
 	int idClaveNave; //clave para identificar la nave
+	int recompensaNave; //recompensa por destruir la nave
+
 protected:
 	FString NombreNave;
 	//UPROPERTY(EditAnywhere)
@@ -83,4 +84,7 @@ public:
 	
 	// Devolver el nombre de la nave
 	FString GetNombreNave();
+
+
+	TMap<ANaveEnemiga*, int> TMRecompensasDeNaves; //Mapa de Recompensas de Naves
 };

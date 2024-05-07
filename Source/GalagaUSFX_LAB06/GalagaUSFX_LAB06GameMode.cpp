@@ -46,9 +46,6 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 	//// Definiendo las posiciones de las naves enemigas
 	//FVector	PosicionNaveEnemigas = FVector(-600.0f, -650.0f, 200.0f); // Posicion inicial de las naves enemigas
 
-	int ClaveNaves = 0; // clave para las naves enemigas
-
-
 
 	UWorld * World = GetWorld();
 	if (World != nullptr) 
@@ -113,7 +110,8 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			// Llamamos a la fabrica de naves aereas para crear una nave de la clase NaveAerea_Caza
 			ANaveEnemiga* NaveEnemiga = CreadorNavesAereas->OrdenarNave("NaveAerea_Caza", PosicionNavesAereas);
 			NaveEnemiga->idClaveNave = ClaveNaves++; // Asignar la clave y luego incrementar
-			TMAPocionesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves aerea caza
+			TMClavesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves aerea caza
+			TMNavesEnemigas.Add(NaveEnemiga, PosicionNavesAereas); // Agregamos la nave al TMap y la Posicion de la nave aerea caza
 			TANavesEnemigas.Add(NaveEnemiga); // Agregamos la nave a la lista de naves enemigas
 			PosicionNavesAereas.Y += 200.0f; // Sirve para que las naves esten separadas en el eje X
 		}
@@ -129,7 +127,8 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			// Llamamos a la fabrica de naves aereas para crear una nave de la clase NaveAerea_Transporte
 			ANaveEnemiga* NaveEnemiga = CreadorNavesAereas->OrdenarNave("NaveAerea_Transporte", PosicionNavesAereas);
 			NaveEnemiga->idClaveNave = ClaveNaves++; // Asignar la clave y luego incrementar
-			TMAPocionesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves aerea transporte
+			TMClavesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves aerea transporte
+			TMNavesEnemigas.Add(NaveEnemiga, PosicionNavesAereas); // Agregamos la nave al TMap y la Posicion de la nave aerea transporte
 			TANavesEnemigas.Add(NaveEnemiga); // Agregamos la nave a la lista de naves enemigas
 			PosicionNavesAereas.Y += 200.0f; // Sirve para que las naves esten separadas en el eje X
 		}
@@ -144,7 +143,8 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			// Llamamos a la fabrica de naves terrestres para crear una nave de la clase NaveTerrestre_Transporte
 			ANaveEnemiga* NaveEnemiga = CreadorNavesTerrestres->OrdenarNave("NaveTerrestre_Transporte", PosicionNavesTerrestres);
 			NaveEnemiga->idClaveNave = ClaveNaves++; // Asignar la clave y luego incrementar
-			TMAPocionesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves terrestre transporte
+			TMClavesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves terrestre transporte
+			//TMANavesEnemigas.Add(NaveEnemiga, PosicionNavesTerrestres); // Agregamos la nave al TMap y la Posicion de la nave terrestre transporte
 			TANavesEnemigas.Add(NaveEnemiga); // agregamos la nave a la lista de naves enemigas
 			PosicionNavesTerrestres.Y += 250.0f; // sirve para que las naves esten separadas en el eje Y
 		}
@@ -159,7 +159,8 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			// Llamamos a la fabrica de naves terrestres para crear una nave de la clase NaveTerrestre_Artilleria
 			ANaveEnemiga* NaveEnemiga = CreadorNavesTerrestres->OrdenarNave("NaveTerrestre_Artilleria", PosicionNavesTerrestres);
 			NaveEnemiga->idClaveNave = ClaveNaves++; // Asignar la clave y luego incrementar
-			TMAPocionesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves terrestre artilleria
+			TMClavesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves terrestre artilleria
+			//TMANavesEnemigas.Add(NaveEnemiga, PosicionNavesTerrestres); // Agregamos la nave al TMap y la Posicion de la nave terrestre artilleria
 			TANavesEnemigas.Add(NaveEnemiga); // agregamos la nave a la lista de naves enemigas
 			PosicionNavesTerrestres.Y += 250.0f; // sirve para que las naves esten separadas en el eje Y
 		}
@@ -173,7 +174,8 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			// Llamamos a la fabrica de naves acuaticas para crear una nave de la clase NaveAcuatica_Exploracion
 			ANaveEnemiga* NaveEnemiga = CreadorNavesAcuaticas->OrdenarNave("NaveAcuatica_Exploracion", PosicionNavesAcuaticas);
 			NaveEnemiga->idClaveNave = ClaveNaves++; // Asignar la clave y luego incrementar
-			TMAPocionesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves acuatica exploracion
+			TMClavesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves acuatica exploracion
+			//TMANavesEnemigas.Add(NaveEnemiga, PosicionNavesAcuaticas); // Agregamos la nave al TMap y la Posicion de la nave acuatica exploracion
 			TANavesEnemigas.Add(NaveEnemiga); // agregamos la nave a la lista de naves enemigas
 			PosicionNavesAcuaticas.Y += 250.0f; // sirve para que las naves esten separadas en el eje X
 		}
@@ -188,10 +190,15 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			// Llamamos a la fabrica de naves acuaticas para crear una nave de la clase NaveAcuatica_Espia
 			ANaveEnemiga* NaveEnemiga = CreadorNavesAcuaticas->OrdenarNave("NaveAcuatica_Espia", PosicionNavesAcuaticas);
 			NaveEnemiga->idClaveNave = ClaveNaves++; // Asignar la clave y luego incrementar
-			TMAPocionesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves acuatica espia
+			TMClavesNavesEnemigas.Add(NaveEnemiga, ClaveNaves); // Agregamos la nave al TMap y la Clave de la naves acuatica espia
+			//TMANavesEnemigas.Add(NaveEnemiga, PosicionNavesAcuaticas); // Agregamos la nave al TMap y la Posicion de la nave acuatica espia
 			TANavesEnemigas.Add(NaveEnemiga); // agregamos la nave a la lista de naves enemigas
 			PosicionNavesAcuaticas.Y += 250.0f; // sirve para que las naves esten separadas en el eje X
 		}
+
+
+		// Temporizador para crear enemigos aleatorios cada 5 segundos
+		GetWorldTimerManager().SetTimer(FTHCrearEnemigosAleatorios, this, &AGalagaUSFX_LAB06GameMode::CrearEnemigos, 5.0f, true, 5.0f);
 
 		// Implementamos un temporizador que controla la visualización de las claves de las naves
 		GetWorldTimerManager().SetTimer(FTHMostrarClaves, this, &AGalagaUSFX_LAB06GameMode::MostrarClavesNaves, 2.0f, false);
@@ -201,7 +208,7 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 
 void AGalagaUSFX_LAB06GameMode::MostrarClavesNaves()
 {
-	for (auto& ElementoActual : TMAPocionesNavesEnemigas) {
+	for (auto& ElementoActual : TMClavesNavesEnemigas) {
 		ANaveEnemiga* naveEnemigaActual = ElementoActual.Key;
 		int claveNave = ElementoActual.Value;
 
@@ -223,6 +230,92 @@ void AGalagaUSFX_LAB06GameMode::OcultarClavesNaves()
 {
 	// Limpia los mensajes en pantalla
 	GEngine->ClearOnScreenDebugMessages();
+}
+
+
+
+void AGalagaUSFX_LAB06GameMode::CrearEnemigosAleatoriamente(TArray<FString> TiposNaves, FVector PosicionInicial, float EspacioEntreNavesY, int CantidadNaves)
+{
+	// Obtener el mundo
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	// Posición Y inicial
+	float PosicionY = PosicionInicial.Y;
+
+	// Incremento en la posición Y para cada fila
+	float IncrementoY = EspacioEntreNavesY * TiposNaves.Num();
+
+	// Crear naves enemigas aleatoriamente
+	for (int i = 0; i < CantidadNaves; i++)
+	{
+		// Obtener una posición aleatoria desde TMNavesEnemigas
+		int32 RandomIndex = FMath::RandRange(0, TMNavesEnemigas.Num() - 1);
+		auto It = TMNavesEnemigas.CreateIterator();
+		for (int32 Index = 0; Index < RandomIndex; ++Index)
+		{
+			++It;
+		}
+		FVector PosicionNaveNueva = It->Value;
+
+		// Ajustar la posición Y basada en el índice de iteración
+		PosicionNaveNueva.Y = PosicionY + (i * IncrementoY);
+
+		// Obtener un tipo de nave enemiga aleatorio
+		int32 RandomTypeIndex = FMath::RandRange(0, TiposNaves.Num() - 1);
+		FString TipoNaveEnemiga = TiposNaves[RandomTypeIndex];
+
+		// Llamamos a la fabrica de naves para crear una nave del tipo especificado
+		ANaveEnemiga* NuevaNaveEnemiga = nullptr;
+		if (TipoNaveEnemiga == "NaveAerea_Caza")
+		{
+			NuevaNaveEnemiga = World->SpawnActor<ANaveAerea_Caza>(ANaveAerea_Caza::StaticClass(), PosicionNaveNueva, FRotator::ZeroRotator);
+		}
+		else if (TipoNaveEnemiga == "NaveAerea_Transporte")
+		{
+			NuevaNaveEnemiga = World->SpawnActor<ANaveAerea_Transporte>(ANaveAerea_Transporte::StaticClass(), PosicionNaveNueva, FRotator::ZeroRotator);
+		}
+		// Agregar la nueva nave enemiga al mapa
+		if (NuevaNaveEnemiga)
+		{
+			NuevaNaveEnemiga->idClaveNave = ClaveNaves++;
+			TMClavesNavesEnemigas.Add(NuevaNaveEnemiga, NuevaNaveEnemiga->idClaveNave);
+			TMNavesEnemigas.Add(NuevaNaveEnemiga, PosicionNaveNueva);
+			TANavesEnemigas.Add(NuevaNaveEnemiga);
+		}
+	}
+}
+
+
+
+void AGalagaUSFX_LAB06GameMode::CrearEnemigos()
+{
+	// Lista de tipos de naves enemigas disponibles
+	TArray<FString> TiposNaves;
+	TiposNaves.Add("NaveAerea_Caza");
+	TiposNaves.Add("NaveAerea_Transporte");
+
+	// Espacio deseado entre las naves en el eje Y
+	float EspacioEntreNavesY = 100.0f;
+
+	// Posición inicial de las naves
+	FVector PosicionInicial = FVector(0.0f, -650.0f, 200.0f);
+
+	// Cantidad de naves a crear
+	int CantidadNaves = 8;
+
+	// Llamada a la función para crear las naves enemigas aleatoriamente
+	CrearEnemigosAleatoriamente(TiposNaves, PosicionInicial, EspacioEntreNavesY, CantidadNaves);
+}
+
+void AGalagaUSFX_LAB06GameMode::Score()
+{
+	// Implementar la función para mostrar el score
+
+
 }
 
 

@@ -18,9 +18,12 @@ ANaveAerea_Caza::ANaveAerea_Caza()
 	// Definimos la velocidad en la que se movera la nave en el eje X porque esta creada de forma vertical
 	VelocidadYCaza = -250.0f;
 
-    //VIDA DE LA NAVE 
-    energia = 50; // Inicializar la energia que tendra la nave
+    // Vida de la Nave
+    energia = 10; // Inicializar la energia que tendra la nave
 	resistencia = 30; // Inicializar la resistencia que tendra la nave
+
+    // Recompensa de la nave cuando se destruya
+	recompensaNave = 10;  // la nave otorga 10 puntos al ser destruida
 
 }
 
@@ -58,18 +61,21 @@ void ANaveAerea_Caza::Mover(float DeltaTime)
     SetActorLocation(FVector(PosicionActual.X + NuevaX, NuevaPosicionY, PosicionActual.Z));
 }
 
-void ANaveAerea_Caza::RecibirDanio(float dano)
+int32 ANaveAerea_Caza::RecibirDanio(float dano)
 {
-	// Restamos la energia de la nave
-	energia -= dano;
+    // Restamos la energia de la nave
+    energia -= dano;
 
-	// Verificamos si la nave ha sido destruida
-	if (energia <= 0)
-	{
-		// Destruimos la nave
-		Destroy();
-	}
+    // Verificamos si la nave ha sido destruida
+    if (energia <= 0)
+    {
+        // Destruimos la nave
+        Destroy();
+		return recompensaNave; // si la nave ha sido destruida, retornamos la recompensa
+    }
+	return 0; // si la nave no ha sido destruida, retornamos 0
 }
+
 
 //void ANaveEnemigaCaza::RecibirDanio(float Cantidad)
 //{

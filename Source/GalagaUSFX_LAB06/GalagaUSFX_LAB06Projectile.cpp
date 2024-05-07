@@ -6,6 +6,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Engine/StaticMesh.h"
+#include "NaveEnemiga.h"
 #include "NaveAerea_Caza.h"
 #include "NaveAerea_Transporte.h"
 
@@ -47,14 +48,15 @@ void AGalagaUSFX_LAB06Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Ot
 
 	if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL))
 	{
+		// Verificar si la bala colisionó con una Nave Aérea Caza
 		ANaveAerea_Caza* NaveAereaCaza = Cast<ANaveAerea_Caza>(OtherActor);
 		if (NaveAereaCaza)
 		{
-
 			// Reducir la energía de la nave enemiga
 			float const Cantidad = 10.0f; // Cantidad de daño que inflige la bala
 			NaveAereaCaza->RecibirDanio(Cantidad);
-
+			TANavesEnemigasEliminadas.Add(NaveAereaCaza);
+			
 			// Eliminar la bala
 			if (GetOwner() != NULL)
 			{
@@ -62,8 +64,10 @@ void AGalagaUSFX_LAB06Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Ot
 			}
 
 			//// Eliminar la nave enemiga
-			//NaveAereaCaza->Destroy();
+			//NaveAereaCaza->Destroy(); // si descomento esto elimina la nave directamente
 		}
+
+		// Verificar si la bala colisionó con una Nave Aérea Transporte
 		ANaveAerea_Transporte* NaveAereaTransporte = Cast<ANaveAerea_Transporte>(OtherActor);
 		if (NaveAereaTransporte)
 		{
@@ -71,15 +75,16 @@ void AGalagaUSFX_LAB06Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Ot
 			// Reducir la energía de la nave enemiga
 			float const Cantidad = 10.0f; // Cantidad de daño que inflige la bala
 			NaveAereaTransporte->RecibirDanio(Cantidad);
+			TANavesEnemigasEliminadas.Add(NaveAereaTransporte);
+			
 
 			// Eliminar la bala
 			if (GetOwner() != NULL)
 			{
 				GetOwner()->Destroy();
 			}
-
 			//// Eliminar la nave enemiga
-			//NaveAereaTransporte->Destroy();
+			//NaveAereaTransporte->Destroy(); // si descomento esto elimina la nave directamente
 		}
 	}
 

@@ -16,6 +16,11 @@ ANaveTerrestre_Artilleria::ANaveTerrestre_Artilleria()
 
 	NombreNave = "NaveTerrestre_Artilleria"; //Nombre de la nave
 	VelocidadYArtilleria = 350.0f;
+
+
+	//VIDA DE LA NAVE 
+	energia = 10; // Inicializar la energia que tendra la nave
+	resistencia = 30; // Inicializar la resistencia que tendra la nave
 	/*VelocidadXArtilleria = 0.0f;*/
 }
 

@@ -23,7 +23,7 @@ public:
 
 public:
 	virtual void Mover(float DeltaTime);
-	virtual void RecibirDanio(float dano); 
+	virtual int32 RecibirDanio(float dano); 
 
 protected:
 	// Velocidad en el eje Y
