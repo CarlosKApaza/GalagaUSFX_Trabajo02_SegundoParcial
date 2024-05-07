@@ -45,7 +45,14 @@ public:
 	void CrearEnemigosAleatoriamente(TArray<FString> TiposNaves, FVector PosicionInicial, float EspacioEntreNavesY, int CantidadNaves); //Funcion para crear enemigos aleatoriamente
 	void CrearEnemigos(); //Funcion para crear enemigos de un tipo especifico
 
-	//void Score(); //Funcion para mostrar el score
+
+
+//	void Score(); //Funcion para mostrar el score
+//	void IncrementarPuntaje(int32 Puntos);
+//	FTimerHandle FTHImcrementarPuntaje;
+//
+//protected:
+//	int32 Puntaje; //Puntaje del jugador
 };
 
 

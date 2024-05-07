@@ -29,7 +29,7 @@ public:
 
 public:
 	//Funcion pura para crear una nave enemiga
-	virtual ANaveEnemiga* CrearNaveEnemiga(FString NombreNaveSKU, FVector PosicionNave) PURE_VIRTUAL(ACreadorNavesEnemigas::CrearNaveEnemiga, return nullptr;)
+	virtual ANaveEnemiga* CrearNaveEnemiga(FString NombreNaveSKU, FVector PosicionNave) PURE_VIRTUAL(ACreadorNaves::CrearNaveEnemiga, return nullptr;)
 
 		//Ordena, crea y retorna una pocion de una categoria especifica
 		ANaveEnemiga* OrdenarNave(FString Categoria, FVector UbicacionNaveOrden);
