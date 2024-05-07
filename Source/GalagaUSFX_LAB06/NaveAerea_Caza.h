@@ -29,4 +29,5 @@ protected:
 	// Velocidad en el eje Y
 	UPROPERTY(EditAnywhere, Category = "Velocidad Nave Aerea Caza")
 	float VelocidadYCaza;
+
 };

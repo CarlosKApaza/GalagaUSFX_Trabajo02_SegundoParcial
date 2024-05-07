@@ -60,9 +60,9 @@ void EmptyLinkFunctionForGeneratedCodeGalagaUSFX_LAB06GameMode() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalagaUSFX_LAB06GameMode_Statics::NewProp_TMClavesNavesEnemigas_Key_KeyProp = { "TMClavesNavesEnemigas_Key", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_ANaveEnemiga_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalagaUSFX_LAB06GameMode_Statics::NewProp_TMClavesNavesEnemigas_MetaData[] = {
-		{ "Comment", "// clave para las naves enemigas\n" },
+		{ "Comment", "// clave para las naves enemigas\n//int Puntaje; //Puntaje del jugador\n" },
 		{ "ModuleRelativePath", "GalagaUSFX_LAB06GameMode.h" },
-		{ "ToolTip", "clave para las naves enemigas" },
+		{ "ToolTip", "clave para las naves enemigas\nint Puntaje; Puntaje del jugador" },
 	};
 #endif
 	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UClass_AGalagaUSFX_LAB06GameMode_Statics::NewProp_TMClavesNavesEnemigas = { "TMClavesNavesEnemigas", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalagaUSFX_LAB06GameMode, TMClavesNavesEnemigas), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AGalagaUSFX_LAB06GameMode_Statics::NewProp_TMClavesNavesEnemigas_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalagaUSFX_LAB06GameMode_Statics::NewProp_TMClavesNavesEnemigas_MetaData)) };
@@ -98,7 +98,7 @@ void EmptyLinkFunctionForGeneratedCodeGalagaUSFX_LAB06GameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGalagaUSFX_LAB06GameMode, 952346173);
+	IMPLEMENT_CLASS(AGalagaUSFX_LAB06GameMode, 3885625595);
 	template<> GALAGAUSFX_LAB06_API UClass* StaticClass<AGalagaUSFX_LAB06GameMode>()
 	{
 		return AGalagaUSFX_LAB06GameMode::StaticClass();

@@ -25,11 +25,16 @@ AGalagaUSFX_LAB06GameMode::AGalagaUSFX_LAB06GameMode()
 {
 	// set default pawn class to our character class
 	DefaultPawnClass = AGalagaUSFX_LAB06Pawn::StaticClass();
+
 }
 
 void AGalagaUSFX_LAB06GameMode::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//Puntaje = 0; // Inicializamos el puntaje del jugador
+
+	//Score(); // Mostrar el puntaje al comenzar el juego
 
 	//// LLamando a la fabrica de naves enemigas
 	//ACreadorNaves* CreadorNaves = GetWorld()->SpawnActor<ACreadorNavesEnemigas>(ACreadorNavesEnemigas::StaticClass());
@@ -232,8 +237,6 @@ void AGalagaUSFX_LAB06GameMode::OcultarClavesNaves()
 	GEngine->ClearOnScreenDebugMessages();
 }
 
-
-
 void AGalagaUSFX_LAB06GameMode::CrearEnemigosAleatoriamente(TArray<FString> TiposNaves, FVector PosicionInicial, float EspacioEntreNavesY, int CantidadNaves)
 {
 	// Obtener el mundo
@@ -305,19 +308,43 @@ void AGalagaUSFX_LAB06GameMode::CrearEnemigos()
 	FVector PosicionInicial = FVector(0.0f, -650.0f, 200.0f);
 
 	// Cantidad de naves a crear
-	int CantidadNaves = 8;
+	int CantidadNaves = 10;
 
 	// Llamada a la función para crear las naves enemigas aleatoriamente
 	CrearEnemigosAleatoriamente(TiposNaves, PosicionInicial, EspacioEntreNavesY, CantidadNaves);
 }
 
-void AGalagaUSFX_LAB06GameMode::Score()
-{
-	// Implementar la función para mostrar el score
+
+//// Actualizamos el puntaje en la funcion RecibirDanio
+//int32 ANaveAerea_Caza::RecibirDanio(float dano)
+//{
+//	// Restamos la energia de la nave
+//	energia -= dano;
+//
+//	// Verificamos si la nave ha sido destruida
+//	if (energia <= 0)
+//	{
+//		// Destruimos la nave
+//		Destroy();
+//
+//		// Actualizamos el puntaje
+//		Puntaje += recompensaNave;
+//
+//		return recompensaNave; // Si la nave ha sido destruida, retornamos la recompensa
+//	}
+//	return 0; // Si la nave no ha sido destruida, retornamos 0
+//}
 
 
-}
-
-
-
-
+//void AGalagaUSFX_LAB06GameMode::Score()
+//{
+//	// Implementar la función para mostrar el score
+//// Mostrar el puntaje en la pantalla
+//	if (GEngine)
+//	{
+//		FString PuntajeStr = FString::FromInt(Puntaje);
+//		FString Mensaje = "Puntaje: " + PuntajeStr;
+//		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, Mensaje);
+//	}
+//}
+//

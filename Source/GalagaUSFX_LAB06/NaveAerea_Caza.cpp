@@ -25,6 +25,7 @@ ANaveAerea_Caza::ANaveAerea_Caza()
     // Recompensa de la nave cuando se destruya
 	recompensaNave = 10;  // la nave otorga 10 puntos al ser destruida
 
+   
 }
 
 void ANaveAerea_Caza::Tick(float DeltaTime)

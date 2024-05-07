@@ -24,6 +24,7 @@ public:
 	TArray<ANaveEnemiga*> TANavesEnemigas; //Array de Naves Enemigas
 
 	int ClaveNaves = 0; // clave para las naves enemigas
+	//int Puntaje; //Puntaje del jugador
 
 UPROPERTY()
 	TMap<ANaveEnemiga*, int> TMClavesNavesEnemigas; //Mapa de Naves Enemigas
@@ -44,7 +45,7 @@ public:
 	void CrearEnemigosAleatoriamente(TArray<FString> TiposNaves, FVector PosicionInicial, float EspacioEntreNavesY, int CantidadNaves); //Funcion para crear enemigos aleatoriamente
 	void CrearEnemigos(); //Funcion para crear enemigos de un tipo especifico
 
-	void Score(); //Funcion para mostrar el score
+	//void Score(); //Funcion para mostrar el score
 };
 
 
