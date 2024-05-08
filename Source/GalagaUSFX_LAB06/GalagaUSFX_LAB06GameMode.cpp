@@ -20,6 +20,10 @@
 #include "NaveAcuatica_Exploracion.h"
 #include "NaveAcuatica_Espia.h"
 
+#include "BuilderPortaNavesAereasNiv1.h"
+#include "DirectorPortaNavesAereas.h"
+#include "PortaNavesAereas.h"
+
 
 AGalagaUSFX_LAB06GameMode::AGalagaUSFX_LAB06GameMode()
 {
@@ -38,7 +42,7 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 
 	//// LLamando a la fabrica de naves enemigas
 	//ACreadorNaves* CreadorNaves = GetWorld()->SpawnActor<ACreadorNavesEnemigas>(ACreadorNavesEnemigas::StaticClass());
-	
+
 	// LLamando a la fabrica de naves aereas 
 	ACreadorNaves* CreadorNavesAereas = GetWorld()->SpawnActor<ACreadorNavesAereas>(ACreadorNavesAereas::StaticClass());
 
@@ -52,8 +56,8 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 	//FVector	PosicionNaveEnemigas = FVector(-600.0f, -650.0f, 200.0f); // Posicion inicial de las naves enemigas
 
 
-	UWorld * World = GetWorld();
-	if (World != nullptr) 
+	UWorld* World = GetWorld();
+	if (World != nullptr)
 	{
 		//// Creamos 7 naves de la clase NaveEnemigaCaza
 		//for (int i = 0; i < 5; i++)
@@ -75,7 +79,7 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 		//	TANavesEnemigas.Add(NaveEnemiga);
 		////TAPocionesNavesEnemigas.Add(NaveEnemiga, PosicionNaveInicial);
 		//	PosicionNaveEnemigas.Y += 200.0f; // sirve para que las naves esten separadas en el eje Y
-	
+
 		//}
 		//// Actualizar la posicion para las naves de la clase bombardero
 		//PosicionNaveEnemigas.X = PosicionNaveEnemigas.X = -200.0f; // actualizo la posicion en la posicion X
@@ -201,12 +205,30 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			PosicionNavesAcuaticas.Y += 250.0f; // sirve para que las naves esten separadas en el eje X
 		}
 
+		//				IMPLEMENTACION DE PATRON BUILDER PARA CONSTRUIR EL PORTANAVES AEREAS
+
+		// Instanciamos el constructor concreto BuilderPortaNavesAereasNiv1 del patron BuilderPortaNavesAereas
+		BuilderPortaNavesAereasNiv1 = GetWorld()->SpawnActor<ABuilderPortaNavesAereasNiv1>(ABuilderPortaNavesAereasNiv1::StaticClass());
+		// Instanciamos el director concreto DirectorPortaNavesAereas del patron BuilderPortaNavesAereas
+		DirectorPortaNavesAereas = GetWorld()->SpawnActor<ADirectorPortaNavesAereas>(ADirectorPortaNavesAereas::StaticClass());
+		// Llamamos a la funcion SetBuilderPortaNavesAereas para asignar el BuilderPortaNavesAereasNiv1 al DirectorPortaNavesAereas
+		DirectorPortaNavesAereas->SetBuilderPortaNavesAereas(BuilderPortaNavesAereasNiv1);
+		// Llamamos a la funcion ConstruirPortaNaveAerea para construir el portanaves aereas
+		DirectorPortaNavesAereas->ConstruirPortaNaveAerea(); // Llamamos a la funcion ConstruirPortaNaveAerea para construir el portanaves aereas
+
+		// Llamamos a la funcion GetPortaNaveAerea para obtener el portanaves aereas
+		APortaNavesAereas* PortaNaveAerea = DirectorPortaNavesAereas->GetPortaNaveAerea();
+		// Llamamos a la funcion CaracteristicasPortaNaveAerea para mostrar las caracteristicas del portanaves aereas
+		PortaNaveAerea->CaracteristicasPortaNaveAerea();
+
+
+		//				IMPLEMENTACION DE TEMPORIZADORES
 
 		// Temporizador para crear enemigos aleatorios cada 5 segundos
 		GetWorldTimerManager().SetTimer(FTHCrearEnemigosAleatorios, this, &AGalagaUSFX_LAB06GameMode::CrearEnemigos, 5.0f, true, 5.0f);
 
 		// Implementamos un temporizador que controla la visualización de las claves de las naves
-		GetWorldTimerManager().SetTimer(FTHMostrarClaves, this, &AGalagaUSFX_LAB06GameMode::MostrarClavesNaves, 2.0f, false);
+		GetWorldTimerManager().SetTimer(FTHMostrarClaves, this, &AGalagaUSFX_LAB06GameMode::MostrarClavesNaves, 1.0f, false);
 
 	}
 }
@@ -226,17 +248,19 @@ void AGalagaUSFX_LAB06GameMode::MostrarClavesNaves()
 		if (GEngine)
 		{
 			// Usar un valor entero en lugar de flotante para el alfa
-			GEngine->AddOnScreenDebugMessage(-1, 50.0f, FColor::Yellow, mensaje);
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, mensaje);
 		}
-	}	
+	}
 }
-
+// funcion para ocultar las claves de las naves
 void AGalagaUSFX_LAB06GameMode::OcultarClavesNaves()
 {
 	// Limpia los mensajes en pantalla
 	GEngine->ClearOnScreenDebugMessages();
 }
 
+
+// Función para crear enemigos aleatoriamente
 void AGalagaUSFX_LAB06GameMode::CrearEnemigosAleatoriamente(TArray<FString> TiposNaves, FVector PosicionInicial, float EspacioEntreNavesY, int CantidadNaves)
 {
 	// Obtener el mundo

@@ -20,13 +20,22 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+private:
+	//The Builder Actor
+	UPROPERTY(VisibleAnywhere, Category = "BuilderPNANiv1")
+	class ABuilderPortaNavesAereasNiv1* BuilderPortaNavesAereasNiv1;
+
+	//The Engineer Actor
+	UPROPERTY(VisibleAnywhere, Category = "DirectorPNA")
+	class ADirectorPortaNavesAereas* DirectorPortaNavesAereas;
+
 public:
 	TArray<ANaveEnemiga*> TANavesEnemigas; //Array de Naves Enemigas
 
 	int ClaveNaves = 0; // clave para las naves enemigas
 	//int Puntaje; //Puntaje del jugador
 
-UPROPERTY()
+	UPROPERTY()
 	TMap<ANaveEnemiga*, int> TMClavesNavesEnemigas; //Mapa de Naves Enemigas
 	TMap<ANaveEnemiga*, FVector> TMNavesEnemigas; //Mapa de Naves Enemigas
 
@@ -47,12 +56,12 @@ public:
 
 
 
-//	void Score(); //Funcion para mostrar el score
-//	void IncrementarPuntaje(int32 Puntos);
-//	FTimerHandle FTHImcrementarPuntaje;
-//
-//protected:
-//	int32 Puntaje; //Puntaje del jugador
+	//	void Score(); //Funcion para mostrar el score
+	//	void IncrementarPuntaje(int32 Puntos);
+	//	FTimerHandle FTHImcrementarPuntaje;
+	//
+	//protected:
+	//	int32 Puntaje; //Puntaje del jugador
 };
 
 

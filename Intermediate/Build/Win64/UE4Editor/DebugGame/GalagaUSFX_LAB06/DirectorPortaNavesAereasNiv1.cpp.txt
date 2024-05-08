@@ -1,0 +1,1 @@
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Intermediate\Build\Win64\UE4Editor\DebugGame\GalagaUSFX_LAB06\Definitions.h

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\GalagaUSFX_LAB06.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{C9A0FE11-EE03-4064-9C55-20738E4FC825}</UniqueIdentifier>
+      <UniqueIdentifier>{39808A76-9CEC-4268-B9B3-BBC524BBE962}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\GalagaUSFX_LAB06.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{860EAF1D-0EA9-4699-9DC6-8F5B23CA796E}</UniqueIdentifier>
+      <UniqueIdentifier>{C64290A0-2D2B-4F82-BBA5-DA66FB555075}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,8 +32,20 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\GalagaUSFX_LAB06">
-      <UniqueIdentifier>{9A5B7A49-AFE2-45C9-B5C2-8E706CE8546D}</UniqueIdentifier>
+      <UniqueIdentifier>{4F8C266F-299A-42CD-962A-5F5C896648BC}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\GalagaUSFX_LAB06\BuilderPortaNavesAereas.cpp">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\BuilderPortaNavesAereas.h">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GalagaUSFX_LAB06\BuilderPortaNavesAereasNiv1.cpp">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\BuilderPortaNavesAereasNiv1.h">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GalagaUSFX_LAB06\CreadorNaves.cpp">
       <Filter>Source\GalagaUSFX_LAB06</Filter>
     </ClCompile>
@@ -62,6 +74,12 @@
       <Filter>Source\GalagaUSFX_LAB06</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\CreadorNavesTerrestres.h">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GalagaUSFX_LAB06\DirectorPortaNavesAereas.cpp">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\DirectorPortaNavesAereas.h">
       <Filter>Source\GalagaUSFX_LAB06</Filter>
     </ClInclude>
     <None Include="..\..\Source\GalagaUSFX_LAB06\GalagaUSFX_LAB06.Build.cs">
@@ -155,6 +173,18 @@
       <Filter>Source\GalagaUSFX_LAB06</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\NaveTerrestre_Transporte.h">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GalagaUSFX_LAB06\PlanoPortaNavesAereas.cpp">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\PlanoPortaNavesAereas.h">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GalagaUSFX_LAB06\PortaNavesAereas.cpp">
+      <Filter>Source\GalagaUSFX_LAB06</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GalagaUSFX_LAB06\PortaNavesAereas.h">
       <Filter>Source\GalagaUSFX_LAB06</Filter>
     </ClInclude>
   </ItemGroup>

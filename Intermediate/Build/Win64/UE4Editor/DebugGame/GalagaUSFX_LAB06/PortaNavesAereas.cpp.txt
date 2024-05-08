@@ -1,0 +1,5 @@
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Intermediate\Build\Win64\UE4Editor\DebugGame\GalagaUSFX_LAB06\Definitions.GalagaUSFX_LAB06.h
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Source\GalagaUSFX_LAB06\PortaNavesAereas.h
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Source\GalagaUSFX_LAB06\PlanoPortaNavesAereas.h
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Intermediate\Build\Win64\UE4Editor\Inc\GalagaUSFX_LAB06\PlanoPortaNavesAereas.generated.h
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Intermediate\Build\Win64\UE4Editor\Inc\GalagaUSFX_LAB06\PortaNavesAereas.generated.h

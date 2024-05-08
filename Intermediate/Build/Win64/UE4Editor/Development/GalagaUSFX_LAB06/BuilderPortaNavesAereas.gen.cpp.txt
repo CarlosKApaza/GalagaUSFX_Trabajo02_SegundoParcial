@@ -1,0 +1,5 @@
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Intermediate\Build\Win64\UE4Editor\Development\GalagaUSFX_LAB06\Definitions.GalagaUSFX_LAB06.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Source\GalagaUSFX_LAB06/BuilderPortaNavesAereas.h
+C:\SIS457 Mis repositorios\GalagaUSFX_Trabajo02_SegundoParcial\GalagaUSFX_LAB6-master\Intermediate\Build\Win64\UE4Editor\Inc\GalagaUSFX_LAB06\BuilderPortaNavesAereas.generated.h

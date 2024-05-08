@@ -58,7 +58,11 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGalagaUSFX_LAB06GameMode)
 
 
-#define GalagaUSFX_LAB6_master_Source_GalagaUSFX_LAB06_GalagaUSFX_LAB06GameMode_h_14_PRIVATE_PROPERTY_OFFSET
+#define GalagaUSFX_LAB6_master_Source_GalagaUSFX_LAB06_GalagaUSFX_LAB06GameMode_h_14_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__BuilderPortaNavesAereasNiv1() { return STRUCT_OFFSET(AGalagaUSFX_LAB06GameMode, BuilderPortaNavesAereasNiv1); } \
+	FORCEINLINE static uint32 __PPO__DirectorPortaNavesAereas() { return STRUCT_OFFSET(AGalagaUSFX_LAB06GameMode, DirectorPortaNavesAereas); }
+
+
 #define GalagaUSFX_LAB6_master_Source_GalagaUSFX_LAB06_GalagaUSFX_LAB06GameMode_h_11_PROLOG
 #define GalagaUSFX_LAB6_master_Source_GalagaUSFX_LAB06_GalagaUSFX_LAB06GameMode_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
