@@ -205,20 +205,35 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 			PosicionNavesAcuaticas.Y += 250.0f; // sirve para que las naves esten separadas en el eje X
 		}
 
+
 		//				IMPLEMENTACION DE PATRON BUILDER PARA CONSTRUIR EL PORTANAVES AEREAS
 
 		// Instanciamos el constructor concreto BuilderPortaNavesAereasNiv1 del patron BuilderPortaNavesAereas
 		BuilderPortaNavesAereasNiv1 = GetWorld()->SpawnActor<ABuilderPortaNavesAereasNiv1>(ABuilderPortaNavesAereasNiv1::StaticClass());
+
 		// Instanciamos el director concreto DirectorPortaNavesAereas del patron BuilderPortaNavesAereas
 		DirectorPortaNavesAereas = GetWorld()->SpawnActor<ADirectorPortaNavesAereas>(ADirectorPortaNavesAereas::StaticClass());
+
 		// Llamamos a la funcion SetBuilderPortaNavesAereas para asignar el BuilderPortaNavesAereasNiv1 al DirectorPortaNavesAereas
 		DirectorPortaNavesAereas->SetBuilderPortaNavesAereas(BuilderPortaNavesAereasNiv1);
+
 		// Llamamos a la funcion ConstruirPortaNaveAerea para construir el portanaves aereas
 		DirectorPortaNavesAereas->ConstruirPortaNaveAerea(); // Llamamos a la funcion ConstruirPortaNaveAerea para construir el portanaves aereas
+
+
 
 		// Llamamos a la funcion GetPortaNaveAerea para obtener el portanaves aereas
 		APortaNavesAereas* PortaNaveAerea = DirectorPortaNavesAereas->GetPortaNaveAerea();
 		// Llamamos a la funcion CaracteristicasPortaNaveAerea para mostrar las caracteristicas del portanaves aereas
+
+		// Establecemos la Posicion de la PortaNaveAerea 
+		FVector PosicionPortaNaveAerea = FVector(-1080.0f, 1650.0f, 160.0f);
+		PortaNaveAerea->SetActorLocation(PosicionPortaNaveAerea); // usamos SetActorLocation para establecer la posicion del PortaNave porque el objeto ya existe solo hace falta asignarle la posicion
+
+		// Establecemos la Escala del PortaNaveAerea
+		FVector EscalaPortaNaveAerea = FVector(5.0f, 5.0f, 5.0f);
+		PortaNaveAerea->SetActorScale3D(EscalaPortaNaveAerea); // SetActorScale3D para establecer la escala del PortaNaveAerea
+
 		PortaNaveAerea->CaracteristicasPortaNaveAerea();
 
 

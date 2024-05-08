@@ -8,6 +8,8 @@
 
 #include "PortaNavesAereas.generated.h"
 
+class UStaticMeshComponent;
+
 UCLASS()
 class GALAGAUSFX_LAB06_API APortaNavesAereas : public AActor, public IPlanoPortaNavesAereas
 {
@@ -34,4 +36,8 @@ public:
 	void SetEscudoAmericano(FString _escudoAmericano) override;
 
 	void CaracteristicasPortaNaveAerea();
+
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* MallaPortaNave;
 };
