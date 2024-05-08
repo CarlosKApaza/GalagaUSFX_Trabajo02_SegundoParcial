@@ -50,6 +50,7 @@ AGalagaUSFX_LAB06Pawn::AGalagaUSFX_LAB06Pawn()
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	FireRate = 0.1f;
 	bCanFire = true;
+	MaxProjectiles = 30; // Maximo de proyectiles que puede disparar
 }
 
 void AGalagaUSFX_LAB06Pawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -95,8 +96,14 @@ void AGalagaUSFX_LAB06Pawn::Tick(float DeltaSeconds)
 	const float FireRightValue = GetInputAxisValue(FireRightBinding);
 	const FVector FireDirection = FVector(FireForwardValue, FireRightValue, 0.f);
 
-	// Try and fire a shot
-	FireShot(FireDirection);
+	// Intenta disparar si hay proyectiles disponibles.
+	if (NumProjectilesFired < MaxProjectiles) // Si el número de proyectiles disparados es menor al máximo de proyectiles
+	{
+		FireShot(FireDirection); // Disparar
+	}
+
+	//// Try and fire a shot
+	//FireShot(FireDirection);
 }
 
 void AGalagaUSFX_LAB06Pawn::FireShot(FVector FireDirection)
@@ -116,6 +123,7 @@ void AGalagaUSFX_LAB06Pawn::FireShot(FVector FireDirection)
 			{
 				// spawn the projectile
 				World->SpawnActor<AGalagaUSFX_LAB06Projectile>(SpawnLocation, FireRotation);
+				NumProjectilesFired++; // AUMENTA EL NUMERO DE PROYECTILES DISPARADOS
 			}
 
 			bCanFire = false;

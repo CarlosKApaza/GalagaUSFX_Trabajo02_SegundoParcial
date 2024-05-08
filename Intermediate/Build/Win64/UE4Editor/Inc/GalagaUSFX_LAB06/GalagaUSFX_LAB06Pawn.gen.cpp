@@ -61,6 +61,10 @@ void EmptyLinkFunctionForGeneratedCodeGalagaUSFX_LAB06Pawn() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MoveSpeed;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxProjectiles_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_MaxProjectiles;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireSound_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireSound;
@@ -142,6 +146,15 @@ void EmptyLinkFunctionForGeneratedCodeGalagaUSFX_LAB06Pawn() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MoveSpeed = { "MoveSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalagaUSFX_LAB06Pawn, MoveSpeed), METADATA_PARAMS(Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MoveSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MoveSpeed_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MaxProjectiles_MetaData[] = {
+		{ "Category", "Gameplay" },
+		{ "Comment", "// AQUI SE AGREGA EL MAXIMO DE PROYECTILES QUE PUEDE DISPARAR\n// ACA POR SI ME OLVIDO\n" },
+		{ "ModuleRelativePath", "GalagaUSFX_LAB06Pawn.h" },
+		{ "ToolTip", "AQUI SE AGREGA EL MAXIMO DE PROYECTILES QUE PUEDE DISPARAR\nACA POR SI ME OLVIDO" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MaxProjectiles = { "MaxProjectiles", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalagaUSFX_LAB06Pawn, MaxProjectiles), METADATA_PARAMS(Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MaxProjectiles_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MaxProjectiles_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_FireSound_MetaData[] = {
 		{ "Category", "Audio" },
 		{ "Comment", "/** Sound to play each time we fire */" },
@@ -157,6 +170,7 @@ void EmptyLinkFunctionForGeneratedCodeGalagaUSFX_LAB06Pawn() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_GunOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_FireRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MoveSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_MaxProjectiles,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::NewProp_FireSound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGalagaUSFX_LAB06Pawn_Statics::StaticCppClassTypeInfo = {
@@ -186,7 +200,7 @@ void EmptyLinkFunctionForGeneratedCodeGalagaUSFX_LAB06Pawn() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGalagaUSFX_LAB06Pawn, 3802058033);
+	IMPLEMENT_CLASS(AGalagaUSFX_LAB06Pawn, 3140168107);
 	template<> GALAGAUSFX_LAB06_API UClass* StaticClass<AGalagaUSFX_LAB06Pawn>()
 	{
 		return AGalagaUSFX_LAB06Pawn::StaticClass();

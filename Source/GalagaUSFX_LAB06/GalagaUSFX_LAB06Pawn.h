@@ -38,6 +38,10 @@ public:
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 	float MoveSpeed;
 
+	// AQUI SE AGREGA EL MAXIMO DE PROYECTILES QUE PUEDE DISPARAR
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite) // ACA POR SI ME OLVIDO
+	int32 MaxProjectiles; // Maximo de proyectiles que puede disparar
+
 	/** Sound to play each time we fire */
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* FireSound;
@@ -67,6 +71,8 @@ private:
 	/** Handle for efficient management of ShotTimerExpired timer */
 	FTimerHandle TimerHandle_ShotTimerExpired;
 
+	// AGREGAMOS UNA VARIABLE PARA CONTAR LOS PROYECTILES QUE SE HAN DISPARADO
+	int32 NumProjectilesFired; // Numero de proyectiles disparados
 public:
 	/** Returns ShipMeshComponent subobject **/
 	FORCEINLINE class UStaticMeshComponent* GetShipMeshComponent() const { return ShipMeshComponent; }
